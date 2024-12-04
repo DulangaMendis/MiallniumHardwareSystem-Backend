@@ -12,7 +12,11 @@ import java.util.List;
 public class HardwareItemController {
 
     @Autowired
-    private HardwareItemService hardwareItemService;
+    private final HardwareItemService hardwareItemService;
+
+    public HardwareItemController(HardwareItemService hardwareItemService) {
+        this.hardwareItemService = hardwareItemService;
+    }
 
     @GetMapping
     public List<HardwareItem> getAllItems() {

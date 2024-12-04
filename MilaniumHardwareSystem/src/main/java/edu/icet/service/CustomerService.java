@@ -2,6 +2,7 @@ package edu.icet.service;
 
 import edu.icet.Repository.CustomerRepository;
 import edu.icet.model.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +10,18 @@ import java.util.List;
 @Service
 public class CustomerService {
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
-    public List<Customer> getAllcustomers(){
+    @Autowired
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    public List<Customer> getAllcustomers() {
         return customerRepository.findAll();
     }
 
-    public  Customer addCustomer(Customer customer){
+    public Customer addCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
 
@@ -31,10 +37,4 @@ public class CustomerService {
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }
-
-
-
 }
-
-
-
