@@ -2,6 +2,7 @@ package edu.icet.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class RentalDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
